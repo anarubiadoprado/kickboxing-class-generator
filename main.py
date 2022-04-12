@@ -4,15 +4,12 @@ from tkinter import *
 from tkinter import messagebox
 from tkinter.font import Font
 from tkinter.ttk import Combobox
-#
-# load_dotenv()
-# EMAIL_ADDRESS = getenv('EMAIL_ADDRESS')
-# PSW = getenv('PSW')
 
-
+# it generate the kickboxing class
 def generate_class():
     level = level_combo.get()
     rounds = round_entries.get()
+    # all moves that we usually use in class
     moves = ["jab",
              "cross",
              "hook",
@@ -24,7 +21,7 @@ def generate_class():
              "lead round kick",
              "rear round kick"
              ]
-
+    # makes sure the user has filled the field, otherwise pop alert
     if len(level) == 0 or len(rounds) == 0:
         messagebox.showinfo(title="Oops", message="Please, make sure you haven't left any field empty!")
     else:
@@ -43,7 +40,6 @@ def generate_class():
                 rounds -= 1
 
         create_file(final_rounds)
-        # reminder - delete entries
 
 
 def difficult_level(level):
@@ -74,7 +70,7 @@ def create_file(rounds):
     messagebox.showinfo(title="Yay!", message="Your file kickboxing-class was create. Your class is ready!")
     clear()
 
-
+# clear the fields
 def clear():
     round_entries.delete(0, END)
     level_combo.set('')
